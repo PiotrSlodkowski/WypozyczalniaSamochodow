@@ -10,6 +10,6 @@
         <Grid.Background>
             <ImageBrush ImageSource="C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\bin\Debug\tlo.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
-        <DataGrid HorizontalAlignment="Left" Height="354" Margin="31,27,0,0" VerticalAlignment="Top" Width="731"/>
+        <DataGrid Name="EquipmentList" HorizontalAlignment="Left" Height="354" Margin="31,27,0,0" VerticalAlignment="Top" Width="731" Grid.Column="4"/>
     </Grid>
 </Window>

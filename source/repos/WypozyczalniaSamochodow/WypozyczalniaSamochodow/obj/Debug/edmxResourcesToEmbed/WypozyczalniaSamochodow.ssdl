@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WypozyczalniaSamochodowModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ClientTable">
+    <Key>
+      <PropertyRef Name="idClient" />
+    </Key>
+    <Property Name="idClient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" />
+    <Property Name="surname" Type="varchar" MaxLength="100" />
+    <Property Name="PESEL" Type="int" />
+    <Property Name="street" Type="varchar" MaxLength="200" />
+    <Property Name="city" Type="varchar" MaxLength="200" />
+    <Property Name="code" Type="varchar" MaxLength="6" />
+  </EntityType>
+  <EntityType Name="EquipmentTable">
+    <Key>
+      <PropertyRef Name="idEquipment" />
+    </Key>
+    <Property Name="idEquipment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="model" Type="varchar" MaxLength="1000" />
+    <Property Name="brand" Type="varchar" MaxLength="1000" />
+    <Property Name="yearOfProduction" Type="int" />
+    <Property Name="numberOfDoors" Type="int" />
+  </EntityType>
+  <EntityType Name="OrdersTable">
+    <Key>
+      <PropertyRef Name="idOrder" />
+    </Key>
+    <Property Name="idOrder" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EquipmentId" Type="int" />
+    <Property Name="rentalTerm" Type="datetime" />
+    <Property Name="returnTerm" Type="datetime" />
+    <Property Name="returnDeadline" Type="datetime" />
+  </EntityType>
+  <Association Name="fk_PracownikMiasto">
+    <End Role="EquipmentTable" Type="Self.EquipmentTable" Multiplicity="0..1" />
+    <End Role="OrdersTable" Type="Self.OrdersTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EquipmentTable">
+        <PropertyRef Name="idEquipment" />
+      </Principal>
+      <Dependent Role="OrdersTable">
+        <PropertyRef Name="EquipmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WypozyczalniaSamochodowModelStoreContainer">
+    <EntitySet Name="ClientTable" EntityType="Self.ClientTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EquipmentTable" EntityType="Self.EquipmentTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrdersTable" EntityType="Self.OrdersTable" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_PracownikMiasto" Association="Self.fk_PracownikMiasto">
+      <End Role="EquipmentTable" EntitySet="EquipmentTable" />
+      <End Role="OrdersTable" EntitySet="OrdersTable" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

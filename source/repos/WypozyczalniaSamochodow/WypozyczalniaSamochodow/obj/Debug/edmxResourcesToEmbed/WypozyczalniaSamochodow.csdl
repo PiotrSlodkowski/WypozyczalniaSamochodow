@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WypozyczalniaSamochodowModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ClientTable">
+    <Key>
+      <PropertyRef Name="idClient" />
+    </Key>
+    <Property Name="idClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="surname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PESEL" Type="Int32" />
+    <Property Name="street" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="code" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="EquipmentTable">
+    <Key>
+      <PropertyRef Name="idEquipment" />
+    </Key>
+    <Property Name="idEquipment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="model" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="brand" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="yearOfProduction" Type="Int32" />
+    <Property Name="numberOfDoors" Type="Int32" />
+    <NavigationProperty Name="OrdersTable" Relationship="Self.fk_PracownikMiasto" FromRole="EquipmentTable" ToRole="OrdersTable" />
+  </EntityType>
+  <EntityType Name="OrdersTable">
+    <Key>
+      <PropertyRef Name="idOrder" />
+    </Key>
+    <Property Name="idOrder" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EquipmentId" Type="Int32" />
+    <Property Name="rentalTerm" Type="DateTime" Precision="3" />
+    <Property Name="returnTerm" Type="DateTime" Precision="3" />
+    <Property Name="returnDeadline" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="EquipmentTable" Relationship="Self.fk_PracownikMiasto" FromRole="OrdersTable" ToRole="EquipmentTable" />
+  </EntityType>
+  <Association Name="fk_PracownikMiasto">
+    <End Role="EquipmentTable" Type="Self.EquipmentTable" Multiplicity="0..1" />
+    <End Role="OrdersTable" Type="Self.OrdersTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EquipmentTable">
+        <PropertyRef Name="idEquipment" />
+      </Principal>
+      <Dependent Role="OrdersTable">
+        <PropertyRef Name="EquipmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WypozyczalniaSamochodowEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ClientTable" EntityType="Self.ClientTable" />
+    <EntitySet Name="EquipmentTable" EntityType="Self.EquipmentTable" />
+    <EntitySet Name="OrdersTable" EntityType="Self.OrdersTable" />
+    <AssociationSet Name="fk_PracownikMiasto" Association="Self.fk_PracownikMiasto">
+      <End Role="EquipmentTable" EntitySet="EquipmentTable" />
+      <End Role="OrdersTable" EntitySet="OrdersTable" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

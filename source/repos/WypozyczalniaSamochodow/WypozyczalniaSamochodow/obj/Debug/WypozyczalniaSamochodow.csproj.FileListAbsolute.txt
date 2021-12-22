@@ -17,3 +17,9 @@ C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\obj
 C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\obj\Debug\Orders.g.cs
 C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\obj\Debug\Equipment.baml
 C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\obj\Debug\Orders.baml
+C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\bin\Debug\EntityFramework.dll
+C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\bin\Debug\EntityFramework.xml
+C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\obj\Debug\WypozyczalniaSamochodow.csproj.CopyComplete
+C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\obj\Debug\WypozyczalniaSamochodow_Content.g.cs

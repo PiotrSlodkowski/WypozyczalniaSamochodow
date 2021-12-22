@@ -19,9 +19,24 @@ namespace WypozyczalniaSamochodow
     /// </summary>
     public partial class Equipment : Window
     {
+
+        WypozyczalniaSamochodowEntities WypozyczalniaSamochodow = new WypozyczalniaSamochodowEntities();
+
         public Equipment()
         {
-            InitializeComponent();
+        InitializeComponent();
+
+            SelectListOfEquipment();
         }
+
+        private void SelectListOfEquipment()
+        {
+        var query =
+        from Equipment in WypozyczalniaSamochodow.EquipmentTable
+        orderby Equipment.idEquipment
+        select new { Marka = Equipment.brand, Model = Equipment.model, RokProdukcji = Equipment.yearOfProduction, LiczbaDrzwi = Equipment.numberOfDoors };
+        EquipmentList.ItemsSource = query.ToList();
+        }
+
     }
 }

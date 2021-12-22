@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WypozyczalniaSamochodowModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ClientTable">
+          <Key>
+            <PropertyRef Name="idClient" />
+          </Key>
+          <Property Name="idClient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="surname" Type="varchar" MaxLength="100" />
+          <Property Name="PESEL" Type="int" />
+          <Property Name="street" Type="varchar" MaxLength="200" />
+          <Property Name="city" Type="varchar" MaxLength="200" />
+          <Property Name="code" Type="varchar" MaxLength="6" />
+        </EntityType>
+        <EntityType Name="EquipmentTable">
+          <Key>
+            <PropertyRef Name="idEquipment" />
+          </Key>
+          <Property Name="idEquipment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="model" Type="varchar" MaxLength="1000" />
+          <Property Name="brand" Type="varchar" MaxLength="1000" />
+          <Property Name="yearOfProduction" Type="int" />
+          <Property Name="numberOfDoors" Type="int" />
+        </EntityType>
+        <EntityType Name="OrdersTable">
+          <Key>
+            <PropertyRef Name="idOrder" />
+          </Key>
+          <Property Name="idOrder" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EquipmentId" Type="int" />
+          <Property Name="rentalTerm" Type="datetime" />
+          <Property Name="returnTerm" Type="datetime" />
+          <Property Name="returnDeadline" Type="datetime" />
+        </EntityType>
+        <Association Name="fk_PracownikMiasto">
+          <End Role="EquipmentTable" Type="Self.EquipmentTable" Multiplicity="0..1" />
+          <End Role="OrdersTable" Type="Self.OrdersTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EquipmentTable">
+              <PropertyRef Name="idEquipment" />
+            </Principal>
+            <Dependent Role="OrdersTable">
+              <PropertyRef Name="EquipmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WypozyczalniaSamochodowModelStoreContainer">
+          <EntitySet Name="ClientTable" EntityType="Self.ClientTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EquipmentTable" EntityType="Self.EquipmentTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrdersTable" EntityType="Self.OrdersTable" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_PracownikMiasto" Association="Self.fk_PracownikMiasto">
+            <End Role="EquipmentTable" EntitySet="EquipmentTable" />
+            <End Role="OrdersTable" EntitySet="OrdersTable" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WypozyczalniaSamochodowModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ClientTable">
+          <Key>
+            <PropertyRef Name="idClient" />
+          </Key>
+          <Property Name="idClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="surname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PESEL" Type="Int32" />
+          <Property Name="street" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="code" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EquipmentTable">
+          <Key>
+            <PropertyRef Name="idEquipment" />
+          </Key>
+          <Property Name="idEquipment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="model" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="brand" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="yearOfProduction" Type="Int32" />
+          <Property Name="numberOfDoors" Type="Int32" />
+          <NavigationProperty Name="OrdersTable" Relationship="Self.fk_PracownikMiasto" FromRole="EquipmentTable" ToRole="OrdersTable" />
+        </EntityType>
+        <EntityType Name="OrdersTable">
+          <Key>
+            <PropertyRef Name="idOrder" />
+          </Key>
+          <Property Name="idOrder" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EquipmentId" Type="Int32" />
+          <Property Name="rentalTerm" Type="DateTime" Precision="3" />
+          <Property Name="returnTerm" Type="DateTime" Precision="3" />
+          <Property Name="returnDeadline" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="EquipmentTable" Relationship="Self.fk_PracownikMiasto" FromRole="OrdersTable" ToRole="EquipmentTable" />
+        </EntityType>
+        <Association Name="fk_PracownikMiasto">
+          <End Role="EquipmentTable" Type="Self.EquipmentTable" Multiplicity="0..1" />
+          <End Role="OrdersTable" Type="Self.OrdersTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EquipmentTable">
+              <PropertyRef Name="idEquipment" />
+            </Principal>
+            <Dependent Role="OrdersTable">
+              <PropertyRef Name="EquipmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WypozyczalniaSamochodowEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ClientTable" EntityType="Self.ClientTable" />
+          <EntitySet Name="EquipmentTable" EntityType="Self.EquipmentTable" />
+          <EntitySet Name="OrdersTable" EntityType="Self.OrdersTable" />
+          <AssociationSet Name="fk_PracownikMiasto" Association="Self.fk_PracownikMiasto">
+            <End Role="EquipmentTable" EntitySet="EquipmentTable" />
+            <End Role="OrdersTable" EntitySet="OrdersTable" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WypozyczalniaSamochodowModelStoreContainer" CdmEntityContainer="WypozyczalniaSamochodowEntities">
+          <EntitySetMapping Name="ClientTable">
+            <EntityTypeMapping TypeName="WypozyczalniaSamochodowModel.ClientTable">
+              <MappingFragment StoreEntitySet="ClientTable">
+                <ScalarProperty Name="idClient" ColumnName="idClient" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="PESEL" ColumnName="PESEL" />
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="code" ColumnName="code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EquipmentTable">
+            <EntityTypeMapping TypeName="WypozyczalniaSamochodowModel.EquipmentTable">
+              <MappingFragment StoreEntitySet="EquipmentTable">
+                <ScalarProperty Name="idEquipment" ColumnName="idEquipment" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="yearOfProduction" ColumnName="yearOfProduction" />
+                <ScalarProperty Name="numberOfDoors" ColumnName="numberOfDoors" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrdersTable">
+            <EntityTypeMapping TypeName="WypozyczalniaSamochodowModel.OrdersTable">
+              <MappingFragment StoreEntitySet="OrdersTable">
+                <ScalarProperty Name="idOrder" ColumnName="idOrder" />
+                <ScalarProperty Name="EquipmentId" ColumnName="EquipmentId" />
+                <ScalarProperty Name="rentalTerm" ColumnName="rentalTerm" />
+                <ScalarProperty Name="returnTerm" ColumnName="returnTerm" />
+                <ScalarProperty Name="returnDeadline" ColumnName="returnDeadline" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

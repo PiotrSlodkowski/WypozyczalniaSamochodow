@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WypozyczalniaSamochodowModelStoreContainer" CdmEntityContainer="WypozyczalniaSamochodowEntities">
+    <EntitySetMapping Name="ClientTable">
+      <EntityTypeMapping TypeName="WypozyczalniaSamochodowModel.ClientTable">
+        <MappingFragment StoreEntitySet="ClientTable">
+          <ScalarProperty Name="idClient" ColumnName="idClient" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="PESEL" ColumnName="PESEL" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="code" ColumnName="code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EquipmentTable">
+      <EntityTypeMapping TypeName="WypozyczalniaSamochodowModel.EquipmentTable">
+        <MappingFragment StoreEntitySet="EquipmentTable">
+          <ScalarProperty Name="idEquipment" ColumnName="idEquipment" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="brand" ColumnName="brand" />
+          <ScalarProperty Name="yearOfProduction" ColumnName="yearOfProduction" />
+          <ScalarProperty Name="numberOfDoors" ColumnName="numberOfDoors" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrdersTable">
+      <EntityTypeMapping TypeName="WypozyczalniaSamochodowModel.OrdersTable">
+        <MappingFragment StoreEntitySet="OrdersTable">
+          <ScalarProperty Name="idOrder" ColumnName="idOrder" />
+          <ScalarProperty Name="EquipmentId" ColumnName="EquipmentId" />
+          <ScalarProperty Name="rentalTerm" ColumnName="rentalTerm" />
+          <ScalarProperty Name="returnTerm" ColumnName="returnTerm" />
+          <ScalarProperty Name="returnDeadline" ColumnName="returnDeadline" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
