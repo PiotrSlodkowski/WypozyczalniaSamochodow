@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\App.xaml
-31998574248
-2443433246
-13-304394338
+7-988269375
+2352861904
+181747562560
 181667718916
-Equipment.xaml;MainWindow.xaml;Orders.xaml;
+Equipment.xaml;EquipmentAdd.xaml;EquipmentDelete.xaml;MainWindow.xaml;Orders.xaml;OrdersAdd.xaml;OrdersReturn.xaml;
 
 False
 

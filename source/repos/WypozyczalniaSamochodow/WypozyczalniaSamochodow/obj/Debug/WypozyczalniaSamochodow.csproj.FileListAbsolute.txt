@@ -23,3 +23,11 @@ C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\bin
 C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\obj\Debug\WypozyczalniaSamochodow.csproj.CopyComplete
 C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\obj\Debug\WypozyczalniaSamochodow_Content.g.cs
+C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\obj\Debug\EquipmentAdd.g.cs
+C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\obj\Debug\OrdersAdd.g.cs
+C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\obj\Debug\EquipmentAdd.baml
+C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\obj\Debug\OrdersAdd.baml
+C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\obj\Debug\OrdersReturn.g.cs
+C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\obj\Debug\OrdersReturn.baml
+C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\obj\Debug\EquipmentDelete.g.cs
+C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\obj\Debug\EquipmentDelete.baml

@@ -14,12 +14,14 @@ namespace WypozyczalniaSamochodow
     
     public partial class OrdersTable
     {
-        public int idOrder { get; set; }
+        public int idOrders { get; set; }
         public Nullable<int> EquipmentId { get; set; }
-        public Nullable<System.DateTime> rentalTerm { get; set; }
+        public Nullable<int> ClientId { get; set; }
+        public Nullable<System.DateTime> rentalDate { get; set; }
         public Nullable<System.DateTime> returnTerm { get; set; }
-        public Nullable<System.DateTime> returnDeadline { get; set; }
+        public Nullable<System.DateTime> returnDate { get; set; }
     
+        public virtual ClientTable ClientTable { get; set; }
         public virtual EquipmentTable EquipmentTable { get; set; }
     }
 }

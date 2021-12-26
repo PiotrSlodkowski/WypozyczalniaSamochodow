@@ -24,7 +24,8 @@ namespace WypozyczalniaSamochodow
         public string model { get; set; }
         public string brand { get; set; }
         public Nullable<int> yearOfProduction { get; set; }
-        public Nullable<int> numberOfDoors { get; set; }
+        public Nullable<int> countOfDoors { get; set; }
+        public Nullable<int> access { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrdersTable> OrdersTable { get; set; }

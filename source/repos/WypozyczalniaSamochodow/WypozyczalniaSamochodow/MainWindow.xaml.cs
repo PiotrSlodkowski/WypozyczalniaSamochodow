@@ -25,13 +25,13 @@ namespace WypozyczalniaSamochodow
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ShowOrdersWindow_Button(object sender, RoutedEventArgs e)
         {
             Orders orders = new Orders();
             orders.ShowDialog();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void ShowEquipmentWindow_Button(object sender, RoutedEventArgs e)
         {
             Equipment equipment = new Equipment();
             equipment.ShowDialog();
@@ -41,5 +41,30 @@ namespace WypozyczalniaSamochodow
         {
 
         }
+
+        private void ShowOrdersAddWindow_Button(object sender, RoutedEventArgs e)
+        {
+            OrdersAdd ordersAdd = new OrdersAdd();
+            ordersAdd.ShowDialog();
+        }
+
+        private void ShowEquipmentAddWindow_Button(object sender, RoutedEventArgs e)
+        {
+            EquipmentAdd equipmentAdd = new EquipmentAdd();
+            equipmentAdd.ShowDialog();
+ 
+        }
+        private void ShowOrdersReturnWindow_Button(object sender, RoutedEventArgs e)
+        {
+            OrdersReturn ordersReturn = new OrdersReturn();
+            ordersReturn.ShowDialog();
+        }
+
+        private void ShowEquipmentDeleteWindow_Button(object sender, RoutedEventArgs e)
+        {
+            EquipmentDelete equipmentDelete = new EquipmentDelete();
+            equipmentDelete.ShowDialog();
+        }
+
     }
 }

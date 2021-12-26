@@ -68,30 +68,51 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ClientTable.cs">
-      <DependentUpon>WypozyczalniaSamochodow.tt</DependentUpon>
+      <DependentUpon>wypozyczalniaSamochodow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ComboBoxItem.cs" />
+    <Compile Include="EquipmentAdd.xaml.cs">
+      <DependentUpon>EquipmentAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentDelete.xaml.cs">
+      <DependentUpon>EquipmentDelete.xaml</DependentUpon>
     </Compile>
     <Compile Include="EquipmentTable.cs">
-      <DependentUpon>WypozyczalniaSamochodow.tt</DependentUpon>
+      <DependentUpon>wypozyczalniaSamochodow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersAdd.xaml.cs">
+      <DependentUpon>OrdersAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersReturn.xaml.cs">
+      <DependentUpon>OrdersReturn.xaml</DependentUpon>
     </Compile>
     <Compile Include="OrdersTable.cs">
-      <DependentUpon>WypozyczalniaSamochodow.tt</DependentUpon>
+      <DependentUpon>wypozyczalniaSamochodow.tt</DependentUpon>
     </Compile>
-    <Compile Include="WypozyczalniaSamochodow.Context.cs">
+    <Compile Include="wypozyczalniaSamochodow.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WypozyczalniaSamochodow.Context.tt</DependentUpon>
+      <DependentUpon>wypozyczalniaSamochodow.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="WypozyczalniaSamochodow.cs">
+    <Compile Include="wypozyczalniaSamochodow.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WypozyczalniaSamochodow.tt</DependentUpon>
+      <DependentUpon>wypozyczalniaSamochodow.tt</DependentUpon>
     </Compile>
-    <Compile Include="WypozyczalniaSamochodow.Designer.cs">
+    <Compile Include="wypozyczalniaSamochodow.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WypozyczalniaSamochodow.edmx</DependentUpon>
+      <DependentUpon>wypozyczalniaSamochodow.edmx</DependentUpon>
     </Compile>
     <Page Include="Equipment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EquipmentAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EquipmentDelete.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -111,6 +132,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Orders.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OrdersAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OrdersReturn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -141,12 +170,12 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <EntityDeploy Include="WypozyczalniaSamochodow.edmx">
+    <EntityDeploy Include="wypozyczalniaSamochodow.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>WypozyczalniaSamochodow.Designer.cs</LastGenOutput>
+      <LastGenOutput>wypozyczalniaSamochodow.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="WypozyczalniaSamochodow.edmx.diagram">
-      <DependentUpon>WypozyczalniaSamochodow.edmx</DependentUpon>
+    <None Include="wypozyczalniaSamochodow.edmx.diagram">
+      <DependentUpon>wypozyczalniaSamochodow.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -156,15 +185,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="WypozyczalniaSamochodow.Context.tt">
+    <Content Include="wypozyczalniaSamochodow.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WypozyczalniaSamochodow.edmx</DependentUpon>
-      <LastGenOutput>WypozyczalniaSamochodow.Context.cs</LastGenOutput>
+      <DependentUpon>wypozyczalniaSamochodow.edmx</DependentUpon>
+      <LastGenOutput>wypozyczalniaSamochodow.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="WypozyczalniaSamochodow.tt">
+    <Content Include="wypozyczalniaSamochodow.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WypozyczalniaSamochodow.edmx</DependentUpon>
-      <LastGenOutput>WypozyczalniaSamochodow.cs</LastGenOutput>
+      <DependentUpon>wypozyczalniaSamochodow.edmx</DependentUpon>
+      <LastGenOutput>wypozyczalniaSamochodow.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

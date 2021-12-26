@@ -13,10 +13,10 @@ namespace WypozyczalniaSamochodow
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WypozyczalniaSamochodowEntities : DbContext
+    public partial class wypozyczalniaSamochodowEntities : DbContext
     {
-        public WypozyczalniaSamochodowEntities()
-            : base("name=WypozyczalniaSamochodowEntities")
+        public wypozyczalniaSamochodowEntities()
+            : base("name=wypozyczalniaSamochodowEntities")
         {
         }
     

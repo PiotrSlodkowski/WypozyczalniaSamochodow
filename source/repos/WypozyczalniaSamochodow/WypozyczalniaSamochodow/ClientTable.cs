@@ -14,12 +14,21 @@ namespace WypozyczalniaSamochodow
     
     public partial class ClientTable
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ClientTable()
+        {
+            this.OrdersTable = new HashSet<OrdersTable>();
+        }
+    
         public int idClient { get; set; }
         public string name { get; set; }
         public string surname { get; set; }
-        public Nullable<int> PESEL { get; set; }
+        public Nullable<long> PESEL { get; set; }
         public string street { get; set; }
         public string city { get; set; }
         public string code { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OrdersTable> OrdersTable { get; set; }
     }
 }

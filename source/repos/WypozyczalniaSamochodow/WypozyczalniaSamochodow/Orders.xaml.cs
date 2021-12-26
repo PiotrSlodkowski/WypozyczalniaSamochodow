@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Globalization;
 
 namespace WypozyczalniaSamochodow
 {
@@ -19,9 +20,30 @@ namespace WypozyczalniaSamochodow
     /// </summary>
     public partial class Orders : Window
     {
+
+        wypozyczalniaSamochodowEntities wypozyczalniaSamochodow = new wypozyczalniaSamochodowEntities();
+
         public Orders()
         {
             InitializeComponent();
+
+            SelectListOfOrders();
+
         }
+
+        private void SelectListOfOrders()
+        {
+            var query =
+            from Orders in wypozyczalniaSamochodow.OrdersTable
+            join Equipment in wypozyczalniaSamochodow.EquipmentTable
+            on Orders.EquipmentId equals Equipment.idEquipment
+            join Client in wypozyczalniaSamochodow.ClientTable
+            on Orders.ClientId equals Client.idClient
+            orderby Orders.idOrders
+            select new { Imię_Klienta = Client.name, Nazwisko_Klienta = Client.surname, Data_Wypożyczenia = Orders.rentalDate, Termin_Zwrotu = Orders.returnTerm, Data_Zwrotu = Orders.returnDate, Marka = Equipment.brand, Model = Equipment.model , Rok_Produkcji = Equipment.yearOfProduction };
+            
+            OrdersList.ItemsSource = query.ToList();
+        }
+
     }
 }
