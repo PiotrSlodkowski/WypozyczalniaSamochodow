@@ -26,12 +26,12 @@ namespace WypozyczalniaSamochodow
             from Equipment in wypozyczalniaSamochodow.EquipmentTable
             where Equipment.access == 1
             orderby Equipment.idEquipment
-            select new { Id = Equipment.idEquipment, brand = Equipment.brand, model = Equipment.model, yearOfProduction = Equipment.yearOfProduction, numbertOfDoors = Equipment.countOfDoors };
+            select new { Equipment.idEquipment, Equipment.brand, Equipment.model, Equipment.yearOfProduction };
 
 
             foreach (var element in query.ToList())
             {
-                Equipment_comboBox.Items.Add(new ComboBoxItem(element.Id + " " + element.brand + " " + element.model + " (" + element.yearOfProduction + ")", element.Id));
+                Equipment_comboBox.Items.Add(new ComboBoxItem(element.idEquipment + " " + element.brand + " " + element.model + " (" + element.yearOfProduction + ")", element.idEquipment));
             }
         }
         public EquipmentDelete()

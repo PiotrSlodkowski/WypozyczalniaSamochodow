@@ -5,20 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WypozyczalniaSamochodow"
         mc:Ignorable="d"
-        Title="Ewidencja sprzetów - dodaj" Height="450" Width="800" ResizeMode="NoResize">
+        Title="Ewidencja sprzetów - dodaj" Height="450" Width="800" ResizeMode="NoResize"        
+        Icon="C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\image\tlo.jpg">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\bin\Debug\tlo.jpg" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\image\tlo.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="326" Margin="243,45,0,0" Stroke="Black" VerticalAlignment="Top" Width="335"/>
-        <Label Content="Marka samochodu:" HorizontalAlignment="Left" Margin="259,59,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="brand_textBox" HorizontalAlignment="Left" Height="23" Margin="259,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Model samochodu:" HorizontalAlignment="Left" Margin="259,113,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.135,0.178" Width="120"/>
-        <TextBox x:Name="model_textBox" HorizontalAlignment="Left" Height="23" Margin="259,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Rok produkcji:" HorizontalAlignment="Left" Margin="259,172,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Liczba drzwi:" HorizontalAlignment="Left" Margin="259,231,0,0" VerticalAlignment="Top"/>
-        <Button Content="Dodaj" HorizontalAlignment="Left" Margin="261,323,0,0" VerticalAlignment="Top" Width="75" Click="EquipmentAdd_Button" RenderTransformOrigin="0.208,0.192"/>
-        <ComboBox x:Name="numberOfDoors_comboBox" HorizontalAlignment="Left" Margin="261,262,0,0" VerticalAlignment="Top" Width="118"/>
-        <ComboBox x:Name="yearOfProduction_comboBox" HorizontalAlignment="Left" Margin="261,198,0,0" VerticalAlignment="Top" Width="120"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="342" Margin="243,29,0,0" Stroke="Black" VerticalAlignment="Top" Width="335"/>
+        <Label Content="Marka samochodu:" HorizontalAlignment="Left" Margin="259,29,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="brand_textBox" HorizontalAlignment="Left" Height="23" Margin="259,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.492,-0.043"/>
+        <Label Content="Model samochodu:" HorizontalAlignment="Left" Margin="259,88,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.135,0.178" Width="120"/>
+        <TextBox x:Name="model_textBox" HorizontalAlignment="Left" Height="23" Margin="259,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Rok produkcji:" HorizontalAlignment="Left" Margin="259,142,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Liczba drzwi:" HorizontalAlignment="Left" Margin="259,195,0,0" VerticalAlignment="Top"/>
+        <Button Content="Dodaj" HorizontalAlignment="Left" Margin="259,331,0,0" VerticalAlignment="Top" Width="75" Click="EquipmentAdd_Button" RenderTransformOrigin="0.208,0.192"/>
+        <ComboBox x:Name="numberOfDoors_comboBox" HorizontalAlignment="Left" Margin="259,221,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="yearOfProduction_comboBox" HorizontalAlignment="Left" Margin="259,168,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Cena:" HorizontalAlignment="Left" Margin="259,248,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="pricePerDay_comboBox" HorizontalAlignment="Left" Margin="259,274,0,0" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

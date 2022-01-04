@@ -28,14 +28,14 @@ namespace WypozyczalniaSamochodow
             on Orders.EquipmentId equals Equipment.idEquipment
             join Client in wypozyczalniaSamochodow.ClientTable
             on Orders.ClientId equals Client.idClient
-            where Orders.returnDate.ToString() == ""
+            where Orders.status == 1
             orderby Orders.idOrders
-            select new { Id = Orders.idOrders, Imie_Klienta = Client.name, Nazwisko_Klienta = Client.surname, Data_Wypożyczenia = Orders.rentalDate, Termin_Zwrotu = Orders.returnTerm, Data_Zwrotu = Orders.returnDate, Marka = Equipment.brand, Model = Equipment.model, Rok_Produkcji = Equipment.yearOfProduction };
+            select new { Orders.idOrders, Client.name, Client.surname, Orders.rentalDate, Orders.returnTerm, Orders.returnDate, Equipment.brand, Equipment.model, Equipment.yearOfProduction };
 
 
             foreach (var element in query.ToList())
             {
-                Orders_comboBox.Items.Add(new ComboBoxItem("Zamówienie nr " + element.Id + " (" + element.Imie_Klienta + " " + element.Nazwisko_Klienta + "; samochód " + element.Marka + " " + element.Model + ", rok " + element.Rok_Produkcji +")", element.Id));
+                Orders_comboBox.Items.Add(new ComboBoxItem("Zamówienie nr " + element.idOrders + " (" + element.name + " " + element.surname + "; samochód " + element.brand + " " + element.model + ", rok " + element.yearOfProduction +")", element.idOrders));
             }
         }
         public OrdersReturn()
@@ -46,11 +46,16 @@ namespace WypozyczalniaSamochodow
 
         private void OrdersReturn_Button(object sender, RoutedEventArgs e)
         {
+            DateTime Selected_Date;
             int idOrders = (Orders_comboBox.SelectedItem as ComboBoxItem).Value;
-            DateTime Selected_Date = Calendar.SelectedDate.Value;
+            if (Calendar.SelectedDate.Value != null)
+                Selected_Date = Calendar.SelectedDate.Value;
+            else
+                Selected_Date = DateTime.Now;
 
             var result = wypozyczalniaSamochodow.OrdersTable.SingleOrDefault(m => m.idOrders == idOrders);
             result.returnDate = Selected_Date;
+            result.status = 0;
 
             var result2 = wypozyczalniaSamochodow.EquipmentTable.SingleOrDefault(m => m.idEquipment == result.EquipmentId);
             result2.access = 1;

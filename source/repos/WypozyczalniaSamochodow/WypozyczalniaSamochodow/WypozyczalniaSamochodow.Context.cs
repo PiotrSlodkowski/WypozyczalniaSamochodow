@@ -28,5 +28,6 @@ namespace WypozyczalniaSamochodow
         public virtual DbSet<ClientTable> ClientTable { get; set; }
         public virtual DbSet<EquipmentTable> EquipmentTable { get; set; }
         public virtual DbSet<OrdersTable> OrdersTable { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

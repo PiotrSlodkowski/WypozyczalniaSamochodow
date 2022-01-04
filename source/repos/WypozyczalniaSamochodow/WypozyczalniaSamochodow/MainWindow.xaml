@@ -5,18 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WypozyczalniaSamochodow"
         mc:Ignorable="d"
-        Title="Wypożyczalna samochodów" Height="450" Width="800" ResizeMode="NoResize">
+        Title="Wypożyczalna samochodów" Height="450" Width="800" ResizeMode="NoResize"
+        Icon="C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\image\tlo.jpg">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\bin\Debug\tlo.jpg" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\image\tlo.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Button Content="Ewidencja zamówień" HorizontalAlignment="Left" Margin="266,21,0,0" VerticalAlignment="Top" Width="124" RenderTransformOrigin="0.693,-4.75" Height="47" Click="ShowOrdersWindow_Button"/>
         <Button Content="Ewidencja sprzętów" HorizontalAlignment="Left" Margin="423,21,0,0" VerticalAlignment="Top" Width="124" Height="47" Click="ShowEquipmentWindow_Button"/>
-        <Button Content="Generuj raport&#xD;&#xA;przeterminowanych&#xD;&#xA;zleceń" HorizontalAlignment="Left" Margin="344,309,0,0" VerticalAlignment="Top" Width="124" Height="54" Click="Button_Click_2"/>
+        <Button Content="Generuj raport&#xA;opóźnionych zwrotów" HorizontalAlignment="Left" Margin="423,294,0,0" VerticalAlignment="Top" Width="124" Height="47" Click="GenerateDelayedRaport_Button"/>
         <Button Content="Dodaj zamówienie" HorizontalAlignment="Left" Margin="266,104,0,0" VerticalAlignment="Top" Width="124" Height="47" RenderTransformOrigin="0.524,0.149" Click="ShowOrdersAddWindow_Button"/>
         <Button Content="Dodaj sprzęt" HorizontalAlignment="Left" Margin="423,104,0,0" VerticalAlignment="Top" Width="124" Height="47" Click="ShowEquipmentAddWindow_Button"/>
-        <Button Content="Obsłuż zwrot" HorizontalAlignment="Left" Margin="266,196,0,0" VerticalAlignment="Top" Width="124" Height="47" Click="ShowOrdersReturnWindow_Button"/>
+        <Button Content="Obsłuż zwrot" HorizontalAlignment="Left" Margin="266,294,0,0" VerticalAlignment="Top" Width="124" Height="47" Click="ShowOrdersReturnWindow_Button"/>
         <Button Content="Usuń sprzęt" HorizontalAlignment="Left" Margin="423,196,0,0" VerticalAlignment="Top" Width="124" Height="47" Click="ShowEquipmentDeleteWindow_Button"/>
+        <Button Content="Usuń zamówienie" HorizontalAlignment="Left" Margin="266,196,0,0" VerticalAlignment="Top" Width="124" Height="47" Click="ShowOrdersDeleteWindows_Button"/>
 
     </Grid>
 </Window>

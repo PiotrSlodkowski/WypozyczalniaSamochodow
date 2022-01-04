@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WypozyczalniaSamochodow"
         mc:Ignorable="d"
-        Title="Ewidencja sprzętów - usuwanie" Height="450" Width="800" ResizeMode="NoResize">
+        Title="Ewidencja sprzętów - usuwanie" Height="450" Width="800" ResizeMode="NoResize"        
+        Icon="C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\image\tlo.jpg">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\bin\Debug\tlo.jpg" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\image\tlo.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="348" Margin="243,45,0,0" Stroke="Black" VerticalAlignment="Top" Width="335"/>
         <Label Content="Sprzęt:" HorizontalAlignment="Left" Margin="259,59,0,0" VerticalAlignment="Top" Width="120"/>

@@ -39,10 +39,12 @@ namespace WypozyczalniaSamochodow
             on Orders.EquipmentId equals Equipment.idEquipment
             join Client in wypozyczalniaSamochodow.ClientTable
             on Orders.ClientId equals Client.idClient
+            where Orders.status != -1
             orderby Orders.idOrders
-            select new { Imię_Klienta = Client.name, Nazwisko_Klienta = Client.surname, Data_Wypożyczenia = Orders.rentalDate, Termin_Zwrotu = Orders.returnTerm, Data_Zwrotu = Orders.returnDate, Marka = Equipment.brand, Model = Equipment.model , Rok_Produkcji = Equipment.yearOfProduction };
-            
+            select new { Orders.idOrders, Client.name, Client.surname, Orders.rentalDate, Orders.returnTerm, Orders.returnDate, Orders.priceOfOrder, Equipment.brand, Equipment.model , Equipment.yearOfProduction };
+
             OrdersList.ItemsSource = query.ToList();
+
         }
 
     }

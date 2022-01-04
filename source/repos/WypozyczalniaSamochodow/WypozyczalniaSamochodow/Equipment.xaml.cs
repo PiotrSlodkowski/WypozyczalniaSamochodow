@@ -24,18 +24,19 @@ namespace WypozyczalniaSamochodow
 
         public Equipment()
         {
-        InitializeComponent();
+            InitializeComponent();
 
             SelectListOfEquipment();
         }
 
         private void SelectListOfEquipment()
         {
-        var query =
-        from Equipment in wypozyczalniaSamochodow.EquipmentTable
-        orderby Equipment.idEquipment
-        select new { Marka = Equipment.brand, Model = Equipment.model, Rok_Produkcji = Equipment.yearOfProduction, Liczba_Drzwi = Equipment.countOfDoors };
-        EquipmentList.ItemsSource = query.ToList();
+            var query =
+            from Equipment in wypozyczalniaSamochodow.EquipmentTable
+            orderby Equipment.idEquipment
+            select new { Equipment.idEquipment, Equipment.brand, Equipment.model, Equipment.yearOfProduction, Equipment.countOfDoors, Equipment.pricePerDay };
+
+            EquipmentList.ItemsSource = query.ToList();
         }
 
     }

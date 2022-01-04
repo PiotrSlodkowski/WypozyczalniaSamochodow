@@ -36,13 +36,17 @@ namespace WypozyczalniaSamochodow
             from Equipment in wypozyczalniaSamochodow.EquipmentTable
             where Equipment.access == 1
             orderby Equipment.idEquipment
-            select new { Id = Equipment.idEquipment, brand = Equipment.brand, model = Equipment.model, yearOfProduction = Equipment.yearOfProduction, countOfDoors = Equipment.countOfDoors };
+            select new { Equipment.idEquipment, Equipment.brand, Equipment.model, Equipment.yearOfProduction };
 
 
             foreach (var element in query.ToList())
-            {
-                Equipment_comboBox.Items.Add(new ComboBoxItem(element.Id + " " + element.brand + " " + element.model + " (" + element.yearOfProduction + ")", element.Id));
-            }
+                Equipment_comboBox.Items.Add(new ComboBoxItem(element.idEquipment + " " + element.brand + " " + element.model + " (" + element.yearOfProduction + ")", element.idEquipment));
+
+            discount_comboBox.Items.Add("10");
+            discount_comboBox.Items.Add("20");
+            discount_comboBox.Items.Add("30");
+            discount_comboBox.Items.Add("40");
+            discount_comboBox.Items.Add("50");
         }
 
         public void SelectClientList()
@@ -50,29 +54,34 @@ namespace WypozyczalniaSamochodow
             var query =
             from Client in wypozyczalniaSamochodow.ClientTable
             orderby Client.idClient
-            select new { Id = Client.idClient, name = Client.name, surname = Client.surname, PESEL = Client.PESEL };
+            select new { Client.idClient, Client.name, Client.surname, Client.PESEL };
 
 
             foreach (var element in query.ToList())
-            {
-                Client_comboBox.Items.Add(new ComboBoxItem(element.name + " " + element.surname + " (" + element.PESEL + ")", element.Id));
-            }
+                Client_comboBox.Items.Add(new ComboBoxItem(element.name + " " + element.surname + " (" + element.PESEL + ")", element.idClient));
+            
         }
         private void OrdersAdd_Button(object sender, RoutedEventArgs e)
         {
             DateTime Selected_Date = Calendar.SelectedDate.Value;
 
             OrdersTable addedOrder = new OrdersTable();
+            int idEquipment = (Equipment_comboBox.SelectedItem as ComboBoxItem).Value;
+
+            var result = wypozyczalniaSamochodow.EquipmentTable.SingleOrDefault(m => m.idEquipment == idEquipment);
 
             addedOrder.EquipmentId = (Equipment_comboBox.SelectedItem as ComboBoxItem).Value;
             addedOrder.ClientId = (Client_comboBox.SelectedItem as ComboBoxItem).Value;
             addedOrder.rentalDate = Selected_Date;
             addedOrder.returnTerm = Selected_Date.AddDays(30);
+            addedOrder.discount = Int32.Parse(discount_comboBox.Text)/100;
+            addedOrder.priceOfOrder = result.pricePerDay * 30 * (100-Int32.Parse(discount_comboBox.Text))/100;
+            addedOrder.status = 1;
 
             wypozyczalniaSamochodow.OrdersTable.Add(addedOrder);
 
-            var result = wypozyczalniaSamochodow.EquipmentTable.SingleOrDefault(m => m.idEquipment == addedOrder.EquipmentId);
             result.access = 0;
+
             wypozyczalniaSamochodow.SaveChanges();
 
             Equipment_comboBox.Items.Clear();

@@ -19,12 +19,18 @@ namespace WypozyczalniaSamochodow
     /// </summary>
     public partial class EquipmentAdd : Window
     {
+        wypozyczalniaSamochodowEntities wypozyczalniaSamochodow = new wypozyczalniaSamochodowEntities();
         public EquipmentAdd()
         {
             InitializeComponent();
 
             numberOfDoors_comboBox.Items.Add("3");
             numberOfDoors_comboBox.Items.Add("5");
+
+            pricePerDay_comboBox.Items.Add("30");
+            pricePerDay_comboBox.Items.Add("40");
+            pricePerDay_comboBox.Items.Add("50");
+
 
             for (int i = 1990; i < 2019; i++)
             {
@@ -35,22 +41,18 @@ namespace WypozyczalniaSamochodow
 
         private void EquipmentAdd_Button(object sender, RoutedEventArgs e)
         {
-            using (wypozyczalniaSamochodowEntities wypozyczalniaSamochodow = new wypozyczalniaSamochodowEntities())
-            {
-                EquipmentTable addedEquipment = new EquipmentTable();
-                addedEquipment.brand = brand_textBox.Text;
-                addedEquipment.model = model_textBox.Text;
-                addedEquipment.yearOfProduction = Int32.Parse(yearOfProduction_comboBox.Text);
-                addedEquipment.countOfDoors = Int32.Parse(numberOfDoors_comboBox.Text);
-                addedEquipment.access = 1;
+            EquipmentTable addedEquipment = new EquipmentTable();
+            addedEquipment.brand = brand_textBox.Text;
+            addedEquipment.model = model_textBox.Text;
+            addedEquipment.yearOfProduction = Int32.Parse(yearOfProduction_comboBox.Text);
+            addedEquipment.countOfDoors = Int32.Parse(numberOfDoors_comboBox.Text);
+            addedEquipment.pricePerDay = Int32.Parse(pricePerDay_comboBox.Text);
+            addedEquipment.access = 1;
 
-                wypozyczalniaSamochodow.EquipmentTable.Add(addedEquipment);
-                wypozyczalniaSamochodow.SaveChanges();
+            wypozyczalniaSamochodow.EquipmentTable.Add(addedEquipment);
+            wypozyczalniaSamochodow.SaveChanges();
 
-                MessageBox.Show("Sprzęt dodano pomyślnie!");
-
-            }
-
+            MessageBox.Show("Sprzęt dodano pomyślnie!");
 
         }
     }

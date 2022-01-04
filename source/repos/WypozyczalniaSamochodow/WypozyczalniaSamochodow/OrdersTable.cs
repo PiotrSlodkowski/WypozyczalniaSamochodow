@@ -20,6 +20,9 @@ namespace WypozyczalniaSamochodow
         public Nullable<System.DateTime> rentalDate { get; set; }
         public Nullable<System.DateTime> returnTerm { get; set; }
         public Nullable<System.DateTime> returnDate { get; set; }
+        public Nullable<float> discount { get; set; }
+        public Nullable<decimal> priceOfOrder { get; set; }
+        public Nullable<int> status { get; set; }
     
         public virtual ClientTable ClientTable { get; set; }
         public virtual EquipmentTable EquipmentTable { get; set; }

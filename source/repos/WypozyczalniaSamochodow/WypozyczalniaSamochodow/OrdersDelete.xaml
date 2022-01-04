@@ -1,0 +1,19 @@
+﻿<Window x:Class="WypozyczalniaSamochodow.OrdersDelete"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WypozyczalniaSamochodow"
+        mc:Ignorable="d"
+        Title="Ewidencja sprzętów - usuwanie" Height="450" Width="800" ResizeMode="NoResize"        
+        Icon="C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\image\tlo.jpg">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\image\tlo.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="348" Margin="243,45,0,0" Stroke="Black" VerticalAlignment="Top" Width="335"/>
+        <Label Content="Zamówienie:" HorizontalAlignment="Left" Margin="259,59,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="Orders_comboBox" HorizontalAlignment="Left" Margin="259,90,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Usuń" HorizontalAlignment="Left" Margin="259,143,0,0" VerticalAlignment="Top" Width="75" Click="OrdersDelete_Button" RenderTransformOrigin="-1.702,-0.05"/>
+    </Grid>
+</Window>
