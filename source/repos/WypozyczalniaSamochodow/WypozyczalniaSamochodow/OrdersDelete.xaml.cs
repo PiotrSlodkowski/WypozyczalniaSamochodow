@@ -20,6 +20,12 @@ namespace WypozyczalniaSamochodow
     public partial class OrdersDelete : Window
     {
         wypozyczalniaSamochodowEntities wypozyczalniaSamochodow = new wypozyczalniaSamochodowEntities();
+
+        public OrdersDelete()
+        {
+            InitializeComponent();
+            SelectOrdersList();
+        }
         public void SelectOrdersList()
         {
             var query =
@@ -37,18 +43,21 @@ namespace WypozyczalniaSamochodow
                 Orders_comboBox.Items.Add(new ComboBoxItem("Zamówienie nr " + element.idOrders + " (" + element.name + " " + element.surname + "; samochód " + element.brand + " " + element.model + ", rok " + element.yearOfProduction + ")", element.idOrders));
             
         }
-        public OrdersDelete()
-        {
-            InitializeComponent();
-            SelectOrdersList();
-        }
 
         private void OrdersDelete_Button(object sender, RoutedEventArgs e)
         {
-            int idOrders = (Orders_comboBox.SelectedItem as ComboBoxItem).Value;
+            int idOrders;
+            
+            if (Orders_comboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Nie wybrano zamówienia");
+                return;
+            }
 
-            var result = wypozyczalniaSamochodow.OrdersTable.SingleOrDefault(m => m.idOrders == idOrders);
-            result.status = -1;
+            idOrders = (Orders_comboBox.SelectedItem as ComboBoxItem).Value;
+
+            var deletedOrders = wypozyczalniaSamochodow.OrdersTable.SingleOrDefault(m => m.idOrders == idOrders);
+            deletedOrders.status = -1;
 
             wypozyczalniaSamochodow.SaveChanges();
 

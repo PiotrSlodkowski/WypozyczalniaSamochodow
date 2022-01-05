@@ -139,5 +139,17 @@ namespace WypozyczalniaSamochodow
             OrdersDelete ordersDelete = new OrdersDelete();
             ordersDelete.ShowDialog();
         }
+
+        private void ShowOrdersEditWindows_Button(object sender, RoutedEventArgs e)
+        {
+            OrdersEdit ordersEdit = new OrdersEdit();
+            ordersEdit.ShowDialog();
+        }
+
+        private void ShowEquipmentEditWindows_Button(object sender, RoutedEventArgs e)
+        {
+            EquipmentEdit equipmentEdit = new EquipmentEdit();
+            equipmentEdit.ShowDialog();
+        }
     }
 }

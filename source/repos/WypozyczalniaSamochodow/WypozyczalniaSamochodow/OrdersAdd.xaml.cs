@@ -28,7 +28,17 @@ namespace WypozyczalniaSamochodow
             InitializeComponent();
             SelectEquipmentList();
             SelectClientList();
+
+            discount_comboBox.Items.Add("0");
+            discount_comboBox.Items.Add("10");
+            discount_comboBox.Items.Add("20");
+            discount_comboBox.Items.Add("30");
+            discount_comboBox.Items.Add("40");
+            discount_comboBox.Items.Add("50");
+            discount_comboBox.SelectedItem = "0";
+
         }
+
 
         public void SelectEquipmentList()
         {
@@ -42,11 +52,6 @@ namespace WypozyczalniaSamochodow
             foreach (var element in query.ToList())
                 Equipment_comboBox.Items.Add(new ComboBoxItem(element.idEquipment + " " + element.brand + " " + element.model + " (" + element.yearOfProduction + ")", element.idEquipment));
 
-            discount_comboBox.Items.Add("10");
-            discount_comboBox.Items.Add("20");
-            discount_comboBox.Items.Add("30");
-            discount_comboBox.Items.Add("40");
-            discount_comboBox.Items.Add("50");
         }
 
         public void SelectClientList()
@@ -63,15 +68,36 @@ namespace WypozyczalniaSamochodow
         }
         private void OrdersAdd_Button(object sender, RoutedEventArgs e)
         {
-            DateTime Selected_Date = Calendar.SelectedDate.Value;
+            DateTime Selected_Date;
+            int idEquipment, idClient;
+
+            if (Calendar.SelectedDate == null)
+                Selected_Date = DateTime.Now;
+            else
+                Selected_Date = Calendar.SelectedDate.Value;
+
+
+            if (Equipment_comboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Nie wybrano sprzętu");
+                return;
+            }
+
+            if (Client_comboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Nie wybrano klienta");
+                return;
+            }
+
+            idEquipment = (Equipment_comboBox.SelectedItem as ComboBoxItem).Value;
+            idClient = (Client_comboBox.SelectedItem as ComboBoxItem).Value;
 
             OrdersTable addedOrder = new OrdersTable();
-            int idEquipment = (Equipment_comboBox.SelectedItem as ComboBoxItem).Value;
 
             var result = wypozyczalniaSamochodow.EquipmentTable.SingleOrDefault(m => m.idEquipment == idEquipment);
 
-            addedOrder.EquipmentId = (Equipment_comboBox.SelectedItem as ComboBoxItem).Value;
-            addedOrder.ClientId = (Client_comboBox.SelectedItem as ComboBoxItem).Value;
+            addedOrder.EquipmentId = idEquipment;
+            addedOrder.ClientId = idClient;
             addedOrder.rentalDate = Selected_Date;
             addedOrder.returnTerm = Selected_Date.AddDays(30);
             addedOrder.discount = Int32.Parse(discount_comboBox.Text)/100;
@@ -86,6 +112,10 @@ namespace WypozyczalniaSamochodow
 
             Equipment_comboBox.Items.Clear();
             SelectEquipmentList();
+
+            Equipment_comboBox.Text = "";
+            Client_comboBox.Text = "";
+
 
             MessageBox.Show("Zamówienie dodano pomyślnie!");
 

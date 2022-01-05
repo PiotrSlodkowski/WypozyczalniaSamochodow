@@ -95,6 +95,9 @@
     <Compile Include="EquipmentDelete.xaml.cs">
       <DependentUpon>EquipmentDelete.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EquipmentEdit.xaml.cs">
+      <DependentUpon>EquipmentEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EquipmentTable.cs">
       <DependentUpon>wypozyczalniaSamochodow.tt</DependentUpon>
     </Compile>
@@ -103,6 +106,9 @@
     </Compile>
     <Compile Include="OrdersDelete.xaml.cs">
       <DependentUpon>OrdersDelete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersEdit.xaml.cs">
+      <DependentUpon>OrdersEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="OrdersReturn.xaml.cs">
       <DependentUpon>OrdersReturn.xaml</DependentUpon>
@@ -140,6 +146,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="EquipmentEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -164,6 +174,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="OrdersDelete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OrdersEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

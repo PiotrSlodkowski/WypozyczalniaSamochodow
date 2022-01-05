@@ -48,3 +48,7 @@ C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\bin
 C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\bin\Debug\NPOI.OOXML.xml
 C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\bin\Debug\NPOI.OpenXml4Net.pdb
 C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\bin\Debug\NPOI.OpenXmlFormats.pdb
+C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\obj\Debug\EquipmentEdit.g.cs
+C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\obj\Debug\OrdersEdit.g.cs
+C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\obj\Debug\EquipmentEdit.baml
+C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\obj\Debug\OrdersEdit.baml

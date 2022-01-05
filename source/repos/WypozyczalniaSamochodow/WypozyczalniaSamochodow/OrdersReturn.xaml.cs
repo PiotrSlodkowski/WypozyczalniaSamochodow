@@ -47,18 +47,27 @@ namespace WypozyczalniaSamochodow
         private void OrdersReturn_Button(object sender, RoutedEventArgs e)
         {
             DateTime Selected_Date;
-            int idOrders = (Orders_comboBox.SelectedItem as ComboBoxItem).Value;
-            if (Calendar.SelectedDate.Value != null)
+            int idOrders;
+
+            if (Orders_comboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Nie wybrano zamówienia");
+                return;
+            }
+
+            idOrders = (Orders_comboBox.SelectedItem as ComboBoxItem).Value;
+
+            if (Calendar.SelectedDate != null)
                 Selected_Date = Calendar.SelectedDate.Value;
             else
                 Selected_Date = DateTime.Now;
 
-            var result = wypozyczalniaSamochodow.OrdersTable.SingleOrDefault(m => m.idOrders == idOrders);
-            result.returnDate = Selected_Date;
-            result.status = 0;
+            var returnedOrders = wypozyczalniaSamochodow.OrdersTable.SingleOrDefault(m => m.idOrders == idOrders);
+            returnedOrders.returnDate = Selected_Date;
+            returnedOrders.status = 0;
 
-            var result2 = wypozyczalniaSamochodow.EquipmentTable.SingleOrDefault(m => m.idEquipment == result.EquipmentId);
-            result2.access = 1;
+            var returnedEquipment = wypozyczalniaSamochodow.EquipmentTable.SingleOrDefault(m => m.idEquipment == returnedOrders.EquipmentId);
+            returnedEquipment.access = 1;
 
             wypozyczalniaSamochodow.SaveChanges();
 

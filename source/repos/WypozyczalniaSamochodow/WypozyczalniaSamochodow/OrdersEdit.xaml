@@ -1,0 +1,27 @@
+﻿<Window x:Class="WypozyczalniaSamochodow.OrdersEdit"
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WypozyczalniaSamochodow"
+        mc:Ignorable="d"
+        Title="Ewidencja zamówień - edytuj" Height="450" Width="800" ResizeMode="NoResize"        
+        Icon="C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\image\tlo.jpg">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\image\tlo.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="351" Margin="188,40,0,0" Stroke="Black" VerticalAlignment="Top" Width="455"/>
+        <Label Content="Sprzęt:" HorizontalAlignment="Left" Margin="214,121,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="Equipment_comboBox" HorizontalAlignment="Left" Margin="214,147,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.058,0.545"/>
+        <Label Content="Klient:" HorizontalAlignment="Left" Margin="214,179,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.135,0.178" Width="120"/>
+        <ComboBox x:Name="Client_comboBox" HorizontalAlignment="Left" Margin="214,205,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Data wypożyczenia:" HorizontalAlignment="Left" Margin="429,116,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.135,0.178" Width="120"/>
+        <Calendar x:Name="Calendar" HorizontalAlignment="Left" Margin="429,142,0,0" VerticalAlignment="Top" Height="169" Width="172"/>
+        <Button Content="Zmień" HorizontalAlignment="Left" Margin="214,338,0,0" VerticalAlignment="Top" Width="75" Click="OrdersEdit_Button"/>
+        <Label Content="Wybrana zniżka:" HorizontalAlignment="Left" Margin="214,237,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.448,0.5"/>
+        <ComboBox x:Name="discount_comboBox" HorizontalAlignment="Left" Margin="214,263,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Wybierz zamówienie:" HorizontalAlignment="Left" Margin="213,50,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="Orders_comboBox" HorizontalAlignment="Left" Margin="214,81,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Orders_comboBox_SelectionChanged"/>
+    </Grid>
+</Window>

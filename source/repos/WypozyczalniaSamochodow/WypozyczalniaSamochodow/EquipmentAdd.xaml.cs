@@ -24,8 +24,8 @@ namespace WypozyczalniaSamochodow
         {
             InitializeComponent();
 
-            numberOfDoors_comboBox.Items.Add("3");
-            numberOfDoors_comboBox.Items.Add("5");
+            countOfDoors_comboBox.Items.Add("3");
+            countOfDoors_comboBox.Items.Add("5");
 
             pricePerDay_comboBox.Items.Add("30");
             pricePerDay_comboBox.Items.Add("40");
@@ -42,10 +42,37 @@ namespace WypozyczalniaSamochodow
         private void EquipmentAdd_Button(object sender, RoutedEventArgs e)
         {
             EquipmentTable addedEquipment = new EquipmentTable();
+
+            if (brand_textBox.Text == "")
+            {
+                MessageBox.Show("Nie podano marki");
+                return;
+            }
+            if (model_textBox.Text == "")
+            {
+                MessageBox.Show("Nie podano modelu");
+                return;
+            }
+            if (yearOfProduction_comboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Nie wybrano roku produkcji");
+                return;
+            }
+            if (countOfDoors_comboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Nie wybrano ilości drzwi");
+                return;
+            }
+            if (pricePerDay_comboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Nie wybrano ceny");
+                return;
+            }
+
             addedEquipment.brand = brand_textBox.Text;
             addedEquipment.model = model_textBox.Text;
             addedEquipment.yearOfProduction = Int32.Parse(yearOfProduction_comboBox.Text);
-            addedEquipment.countOfDoors = Int32.Parse(numberOfDoors_comboBox.Text);
+            addedEquipment.countOfDoors = Int32.Parse(countOfDoors_comboBox.Text);
             addedEquipment.pricePerDay = Int32.Parse(pricePerDay_comboBox.Text);
             addedEquipment.access = 1;
 
@@ -54,6 +81,11 @@ namespace WypozyczalniaSamochodow
 
             MessageBox.Show("Sprzęt dodano pomyślnie!");
 
+            brand_textBox.Text = "";
+            model_textBox.Text = "";
+            yearOfProduction_comboBox.Text = "";
+            countOfDoors_comboBox.Text = "";
+            pricePerDay_comboBox.Text = "";
         }
     }
 }
