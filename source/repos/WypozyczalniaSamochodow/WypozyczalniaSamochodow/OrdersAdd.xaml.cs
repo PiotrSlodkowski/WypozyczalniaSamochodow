@@ -100,8 +100,8 @@ namespace WypozyczalniaSamochodow
             addedOrder.ClientId = idClient;
             addedOrder.rentalDate = Selected_Date;
             addedOrder.returnTerm = Selected_Date.AddDays(30);
-            addedOrder.discount = Int32.Parse(discount_comboBox.Text)/100;
-            addedOrder.priceOfOrder = result.pricePerDay * 30 * (100-Int32.Parse(discount_comboBox.Text))/100;
+            addedOrder.discount = Int32.Parse(discount_comboBox.Text);
+            addedOrder.priceOfOrder = result.pricePerDay * 30 * (100-addedOrder.discount)/100;
             addedOrder.status = 1;
 
             wypozyczalniaSamochodow.OrdersTable.Add(addedOrder);
@@ -115,6 +115,7 @@ namespace WypozyczalniaSamochodow
 
             Equipment_comboBox.Text = "";
             Client_comboBox.Text = "";
+            discount_comboBox.Text = "0";
 
 
             MessageBox.Show("Zamówienie dodano pomyślnie!");

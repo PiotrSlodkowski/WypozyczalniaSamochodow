@@ -47,7 +47,7 @@ namespace WypozyczalniaSamochodow
             on Orders.ClientId equals Client.idClient
             where Orders.status != -1
             orderby Orders.idOrders
-            select new { Orders.idOrders, Client.name, Client.surname, Orders.rentalDate, Orders.returnTerm, Orders.returnDate, Equipment.brand, Equipment.model, Equipment.yearOfProduction };
+            select new { Orders.idOrders, Client.name, Client.surname, Orders.rentalDate, Orders.returnTerm, Orders.returnDate, Orders.discount, Equipment.brand, Equipment.model, Equipment.yearOfProduction };
 
 
             foreach (var element in query.ToList())
@@ -125,9 +125,9 @@ namespace WypozyczalniaSamochodow
                 editedOrders.ClientId = idClient;
             }
             var selectEquipment = wypozyczalniaSamochodow.EquipmentTable.SingleOrDefault(m => m.idEquipment == editedOrders.EquipmentId);
+            editedOrders.priceOfOrder = editedOrders.priceOfOrder/(100-editedOrders.discount)*100 * (100-Int32.Parse(discount_comboBox.Text))/100;
             if (discount_comboBox.SelectedItem != null)
                 editedOrders.discount = Int32.Parse(discount_comboBox.Text);
-            editedOrders.priceOfOrder = selectEquipment.pricePerDay * 30 * (100 - Convert.ToDecimal(editedOrders.discount)) / 100;
             editedOrders.rentalDate = Calendar.SelectedDate.Value;
             editedOrders.returnTerm = Calendar.SelectedDate.Value.AddDays(30);
 

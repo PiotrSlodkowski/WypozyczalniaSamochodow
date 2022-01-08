@@ -15,11 +15,13 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nr zamówienia" Binding="{Binding idOrders}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Cena zamówienia (w zł)" Binding="{Binding priceOfOrder}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Zniżka (w %)" Binding="{Binding discount}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Imię klienta" Binding="{Binding name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Nazwisko klienta" Binding="{Binding surname}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Data wypożyczenia" Binding="{Binding rentalDate}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Termin zwrotu" Binding="{Binding returnTerm}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Data zwrotu" Binding="{Binding returnDate}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Data wypożyczenia" Binding="{Binding rentalDate, StringFormat=\{0:yyyy-MM-dd\}}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Termin zwrotu" Binding="{Binding returnTerm, StringFormat=\{0:yyyy-MM-dd\}}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Data zwrotu" Binding="{Binding returnDate, StringFormat=\{0:yyyy-MM-dd\}}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Nr ewidencyjny" Binding="{Binding idEquipment}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Marka" Binding="{Binding brand}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Model" Binding="{Binding model}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Rok produkcji" Binding="{Binding yearOfProduction}"></DataGridTextColumn>

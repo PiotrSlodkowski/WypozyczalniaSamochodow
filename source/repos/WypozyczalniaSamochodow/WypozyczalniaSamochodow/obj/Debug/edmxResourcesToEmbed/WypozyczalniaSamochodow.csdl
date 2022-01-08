@@ -36,7 +36,7 @@
     <Property Name="rentalDate" Type="DateTime" Precision="3" />
     <Property Name="returnTerm" Type="DateTime" Precision="3" />
     <Property Name="returnDate" Type="DateTime" Precision="3" />
-    <Property Name="discount" Type="Single" />
+    <Property Name="discount" Type="Int32" />
     <Property Name="priceOfOrder" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="status" Type="Int32" />
     <NavigationProperty Name="ClientTable" Relationship="Self.ClientId" FromRole="OrdersTable" ToRole="ClientTable" />

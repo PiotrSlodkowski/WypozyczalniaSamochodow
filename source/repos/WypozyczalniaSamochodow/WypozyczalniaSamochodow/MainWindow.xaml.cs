@@ -1,5 +1,9 @@
 ﻿using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
+using NPOI.HSSF.Util;
+using NPOI.HPSF;
+using NPOI.POIFS.FileSystem;
+using NPOI.HSSF.UserModel;
 using System;
 using System.IO;
 using System.Collections.Generic;
@@ -57,11 +61,10 @@ namespace WypozyczalniaSamochodow
             select new { Orders.idOrders, Orders.priceOfOrder, Client.name, Client.surname, Orders.rentalDate, Orders.returnTerm, Orders.returnDate, Equipment.idEquipment, Equipment.brand, Equipment.model, Equipment.yearOfProduction, };
 
             IWorkbook workbook = new XSSFWorkbook();
-            ISheet sheet = workbook.CreateSheet("Arkusz1");
+            ISheet sheet = workbook.CreateSheet("Opóźnione zwroty");
             IRow row;
 
             row = sheet.CreateRow(0);
-
             row.CreateCell(0).SetCellValue("Nr zamówienia");
             row.CreateCell(1).SetCellValue("Cena zamówienia");
             row.CreateCell(2).SetCellValue("Imię klienta");
@@ -70,19 +73,19 @@ namespace WypozyczalniaSamochodow
             row.CreateCell(5).SetCellValue("Termin zwrotu");
             row.CreateCell(6).SetCellValue("Data zwrotu");
             row.CreateCell(7).SetCellValue("Opóźnienie (w dniach)");
-            row.CreateCell(8).SetCellValue("Kara finansowa");
-            row.CreateCell(9).SetCellValue("Nr ewidencyjny");
+            row.CreateCell(8).SetCellValue("Kara (w zł)");
+            row.CreateCell(9).SetCellValue("Nr ewidencyjny pojazdu");
             row.CreateCell(10).SetCellValue("Marka");
             row.CreateCell(11).SetCellValue("Model");
             row.CreateCell(12).SetCellValue("Rok produkcji");
+
 
             int i = 1;
             double delayedDays = 0;
 
             foreach (var element in query.ToList())
             {
-
-                if (element.returnDate.ToString() == "")
+                if (element.returnDate == null)
                     delayedDays = Math.Floor((DateTime.Now - Convert.ToDateTime(element.returnTerm)).TotalDays);
                 else
                     delayedDays = Math.Floor((Convert.ToDateTime(element.returnDate) - Convert.ToDateTime(element.returnTerm)).TotalDays);
@@ -94,7 +97,10 @@ namespace WypozyczalniaSamochodow
                 row.CreateCell(3).SetCellValue(element.surname.ToString());
                 row.CreateCell(4).SetCellValue(Convert.ToDateTime(element.rentalDate).ToString("yyyy-MM-dd"));
                 row.CreateCell(5).SetCellValue(Convert.ToDateTime(element.returnTerm).ToString("yyyy-MM-dd"));
-                row.CreateCell(6).SetCellValue(Convert.ToDateTime(element.returnDate).ToString("yyyy-MM-dd"));
+                if (element.returnDate != null)
+                    row.CreateCell(6).SetCellValue(Convert.ToDateTime(element.returnDate).ToString("yyyy-MM-dd"));
+                else
+                    row.CreateCell(6).SetCellValue("-");
                 row.CreateCell(7).SetCellValue(delayedDays);
                 row.CreateCell(8).SetCellValue(delayedDays*60);
                 row.CreateCell(9).SetCellValue(element.idEquipment);
@@ -105,10 +111,19 @@ namespace WypozyczalniaSamochodow
                 i++;
             }
 
-            FileStream sw = File.Create("delayed_raport_" + DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + ".xlsx");
-            workbook.Write(sw);
-            sw.Close();
+            try
+            {
+                FileStream sw = File.Create("delayed_raport_" + DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + ".xlsx");
+                workbook.Write(sw);
+                sw.Close();
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Nastąpił błąd zapisu. Spróbuj ponownie!");
+
+            }
         }
+        
 
         private void ShowOrdersAddWindow_Button(object sender, RoutedEventArgs e)
         {

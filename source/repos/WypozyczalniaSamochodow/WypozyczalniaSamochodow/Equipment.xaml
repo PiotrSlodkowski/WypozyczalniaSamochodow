@@ -7,11 +7,14 @@
         mc:Ignorable="d"
         Title="Ewidencja sprzętów" Height="450" Width="800" ResizeMode="NoResize"        
         Icon="C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\image\tlo.jpg">
+    <Window.Resources>
+        <local:ValueConverter x:Key="accessConverter"></local:ValueConverter>
+    </Window.Resources>
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\image\tlo.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
-        <DataGrid Name="EquipmentList" IsReadOnly="True" AutoGenerateColumns="False" Height="354" Margin="48,27,47,0" VerticalAlignment="Top" Width="699" HorizontalAlignment="Center" TextBlock.TextAlignment="Center" ColumnWidth ="Auto">
+        <DataGrid Name="EquipmentList" IsReadOnly="True" AutoGenerateColumns="False" Height="354" Margin="48,27,47,0" VerticalAlignment="Top" Width="699" HorizontalAlignment="Center"  TextBlock.TextAlignment="Center" ColumnWidth ="Auto">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nr ewidencyjny" Binding="{Binding idEquipment}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Marka" Binding="{Binding brand}"></DataGridTextColumn>
@@ -19,6 +22,7 @@
                 <DataGridTextColumn Header="Rok produkcji" Binding="{Binding yearOfProduction}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Liczba drzwi" Binding="{Binding countOfDoors}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Cena na dzień" Binding="{Binding pricePerDay}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Stan" Binding="{Binding access, Converter={StaticResource accessConverter}}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

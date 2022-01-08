@@ -34,7 +34,7 @@
     <Property Name="rentalDate" Type="datetime" />
     <Property Name="returnTerm" Type="datetime" />
     <Property Name="returnDate" Type="datetime" />
-    <Property Name="discount" Type="real" />
+    <Property Name="discount" Type="int" />
     <Property Name="priceOfOrder" Type="money" />
     <Property Name="status" Type="int" />
   </EntityType>

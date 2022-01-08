@@ -52,3 +52,4 @@ C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\obj
 C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\obj\Debug\OrdersEdit.g.cs
 C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\obj\Debug\EquipmentEdit.baml
 C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\obj\Debug\OrdersEdit.baml
+C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\obj\Debug\GeneratedInternalTypeHelper.g.cs

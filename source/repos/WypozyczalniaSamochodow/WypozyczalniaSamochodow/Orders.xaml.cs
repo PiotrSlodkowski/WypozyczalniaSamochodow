@@ -18,6 +18,7 @@ namespace WypozyczalniaSamochodow
     /// <summary>
     /// Logika interakcji dla klasy Orders.xaml
     /// </summary>
+    /// 
     public partial class Orders : Window
     {
 
@@ -41,8 +42,9 @@ namespace WypozyczalniaSamochodow
             on Orders.ClientId equals Client.idClient
             where Orders.status != -1
             orderby Orders.idOrders
-            select new { Orders.idOrders, Client.name, Client.surname, Orders.rentalDate, Orders.returnTerm, Orders.returnDate, Orders.priceOfOrder, Equipment.brand, Equipment.model , Equipment.yearOfProduction };
+            select new { Orders.idOrders, Client.name, Client.surname, Orders.rentalDate, Orders.returnTerm, Orders.returnDate, Orders.priceOfOrder, Orders.discount, Equipment.idEquipment, Equipment.brand, Equipment.model, Equipment.yearOfProduction };
 
+            
             OrdersList.ItemsSource = query.ToList();
 
         }

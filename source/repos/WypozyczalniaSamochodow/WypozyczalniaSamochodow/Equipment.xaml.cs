@@ -17,9 +17,33 @@ namespace WypozyczalniaSamochodow
     /// <summary>
     /// Logika interakcji dla klasy Equipment.xaml
     /// </summary>
+    ///
+
+    class ValueConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            bool access = System.Convert.ToBoolean(value);
+            if (access == true)
+                return "Wolny";
+            else
+                return "Wypożyczony";
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            string access = System.Convert.ToString(value);
+            if (access == "Wolny")
+                return 1;
+            else
+                return 0;
+        }
+
+    }
+
     public partial class Equipment : Window
     {
-
+        
         wypozyczalniaSamochodowEntities wypozyczalniaSamochodow = new wypozyczalniaSamochodowEntities();
 
         public Equipment()
@@ -34,7 +58,7 @@ namespace WypozyczalniaSamochodow
             var query =
             from Equipment in wypozyczalniaSamochodow.EquipmentTable
             orderby Equipment.idEquipment
-            select new { Equipment.idEquipment, Equipment.brand, Equipment.model, Equipment.yearOfProduction, Equipment.countOfDoors, Equipment.pricePerDay };
+            select new { Equipment.idEquipment, Equipment.brand, Equipment.model, Equipment.yearOfProduction, Equipment.countOfDoors, Equipment.pricePerDay, Equipment.access };
 
             EquipmentList.ItemsSource = query.ToList();
         }
