@@ -57,6 +57,7 @@ namespace WypozyczalniaSamochodow
         {
             var query =
             from Equipment in wypozyczalniaSamochodow.EquipmentTable
+            where Equipment.access != -1
             orderby Equipment.idEquipment
             select new { Equipment.idEquipment, Equipment.brand, Equipment.model, Equipment.yearOfProduction, Equipment.countOfDoors, Equipment.pricePerDay, Equipment.access };
 

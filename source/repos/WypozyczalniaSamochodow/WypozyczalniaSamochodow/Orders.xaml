@@ -6,15 +6,15 @@
         xmlns:local="clr-namespace:WypozyczalniaSamochodow"
         mc:Ignorable="d"
         Title="Ewidencja zamówień" Height="450" Width="800" ResizeMode="NoResize"        
-        Icon="C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\image\tlo.jpg">
+        Icon="images\background.jpg">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\image\tlo.jpg" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="images\background.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <DataGrid Name="OrdersList" IsReadOnly="True" AutoGenerateColumns="False" Height="354" Margin="48,27,47,0" VerticalAlignment="Top" Width="699" HorizontalAlignment="Center" TextBlock.TextAlignment="Center" ColumnWidth ="Auto">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nr zamówienia" Binding="{Binding idOrders}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Cena zamówienia (w zł)" Binding="{Binding priceOfOrder}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Cena zamówienia (w zł)" Binding="{Binding priceOfOrder, StringFormat=N2}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Zniżka (w %)" Binding="{Binding discount}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Imię klienta" Binding="{Binding name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Nazwisko klienta" Binding="{Binding surname}"></DataGridTextColumn>

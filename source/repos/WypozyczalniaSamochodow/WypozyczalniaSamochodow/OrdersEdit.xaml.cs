@@ -45,7 +45,7 @@ namespace WypozyczalniaSamochodow
             on Orders.EquipmentId equals Equipment.idEquipment
             join Client in wypozyczalniaSamochodow.ClientTable
             on Orders.ClientId equals Client.idClient
-            where Orders.status != -1
+            where Orders.status == 1
             orderby Orders.idOrders
             select new { Orders.idOrders, Client.name, Client.surname, Orders.rentalDate, Orders.returnTerm, Orders.returnDate, Orders.discount, Equipment.brand, Equipment.model, Equipment.yearOfProduction };
 

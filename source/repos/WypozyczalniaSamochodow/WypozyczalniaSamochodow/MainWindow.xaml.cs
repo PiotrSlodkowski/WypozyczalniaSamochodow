@@ -60,6 +60,12 @@ namespace WypozyczalniaSamochodow
             orderby Orders.returnTerm descending
             select new { Orders.idOrders, Orders.priceOfOrder, Client.name, Client.surname, Orders.rentalDate, Orders.returnTerm, Orders.returnDate, Equipment.idEquipment, Equipment.brand, Equipment.model, Equipment.yearOfProduction, };
 
+            if (query.ToList().Count == 0)
+            {
+                MessageBox.Show("Brak opóźnionych zwrotów");
+                return;
+            }
+
             IWorkbook workbook = new XSSFWorkbook();
             ISheet sheet = workbook.CreateSheet("Opóźnione zwroty");
             IRow row;

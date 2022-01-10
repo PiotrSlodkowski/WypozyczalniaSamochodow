@@ -63,6 +63,13 @@ namespace WypozyczalniaSamochodow
                 Selected_Date = DateTime.Now;
 
             var returnedOrders = wypozyczalniaSamochodow.OrdersTable.SingleOrDefault(m => m.idOrders == idOrders);
+
+            if (returnedOrders.rentalDate >= Selected_Date)
+            {
+                MessageBox.Show("Data zwrotu nie może być wcześniejsza od daty wypożyczenia");
+                return;
+            }
+
             returnedOrders.returnDate = Selected_Date;
             returnedOrders.status = 0;
 

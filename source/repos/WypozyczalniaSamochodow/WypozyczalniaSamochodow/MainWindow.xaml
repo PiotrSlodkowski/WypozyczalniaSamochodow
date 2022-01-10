@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WypozyczalniaSamochodow"
         mc:Ignorable="d"
-        Title="Wypożyczalna samochodów" Height="500" Width="800" ResizeMode="NoResize"
-        Icon="C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\image\tlo.jpg">
+        Title="Wypożyczalnia samochodów" Height="500" Width="800" ResizeMode="NoResize"
+        Icon="images\background.jpg">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\image\tlo.jpg" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="images\background.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Button Content="Ewidencja zamówień" HorizontalAlignment="Left" Margin="266,21,0,0" VerticalAlignment="Top" Width="124" RenderTransformOrigin="0.693,-4.75" Height="47" Click="ShowOrdersWindow_Button"/>
         <Button Content="Ewidencja sprzętów" HorizontalAlignment="Left" Margin="423,21,0,0" VerticalAlignment="Top" Width="124" Height="47" Click="ShowEquipmentWindow_Button"/>

@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:WypozyczalniaSamochodow"
         mc:Ignorable="d"
         Title="Ewidencja zamówień - dodaj" Height="450" Width="800" ResizeMode="NoResize"        
-        Icon="C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\image\tlo.jpg">
+        Icon="images\background.jpg">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\Slodki\source\repos\WypozyczalniaSamochodow\WypozyczalniaSamochodow\image\tlo.jpg" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="images\background.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="351" Margin="188,40,0,0" Stroke="Black" VerticalAlignment="Top" Width="455"/>
         <Label Content="Sprzęt:" HorizontalAlignment="Left" Margin="214,40,0,0" VerticalAlignment="Top" Width="120"/>
