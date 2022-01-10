@@ -1,7 +1,7 @@
 # WypozyczalniaSamochodow
 Program odpowiedzialny za wypożyczalnię samochodów
 
-1.	Aplikacja w WPF, z wykorzystanie Entity Framework i Microsoft SQL.
+1.	Aplikacja w WPF, z wykorzystaniem Entity Framework i Microsoft SQL.
 2.	Aplikacja zawiera:
 - ewidencję wypożyczeń (każde zlecenie z unikatowym numerem ewidencyjnym),
 - ewidencja sprzętów (każdy sprzęt z unikatowym numerem ewidencyjnym).
